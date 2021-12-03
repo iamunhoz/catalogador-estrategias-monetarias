@@ -8,7 +8,7 @@ function Content({
 
 {
   return (
-    <div className='cardGrid'>
+    <main className='cardGrid'>
       {
         listOfCards.length > 0 
         ? listOfCards.map((card, index) => (
@@ -21,7 +21,7 @@ function Content({
           ))
         : 'Loading'
       }
-    </div>
+    </main>
   );
 }
 
