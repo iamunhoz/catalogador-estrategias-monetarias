@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import Header from './components/Header'
 import Content from './components/Content'
-import { retrieveData } from './services/api'
+import { retrieveData, retrieveCurrencies } from './services/api'
 
 function App() {
   const [listOfCards, setListOfCards] = useState([])
   const [listOfCardNames, setListOfCardNames] = useState([])
   const [searchParams, setSearchParams] = useState({
-    currency: 'EURUSD',
+    currency: '',
     timeframe: 'M1'
   })
   const [gales, setGales] = useState('G1')
@@ -17,6 +17,23 @@ function App() {
     const arrayOfObjects = propertiesList.map(property => objectOfObjects[property])
     return arrayOfObjects
   }
+
+  useEffect(() => {
+    retrieveCurrencies()
+      .then(response => {
+        setSearchParams(oldParams => ({
+          ...oldParams,
+          currency: response.data.ok[0]
+        }))
+      })
+  }, [])
+
+  useEffect(() => {
+    setSearchParams(oldParams => ({
+      ...oldParams,
+      currency: retrieveCurrencies()
+    }))
+  }, [])
 
   useEffect(() => {
     retrieveData(searchParams.currency, searchParams.timeframe)
