@@ -1,4 +1,5 @@
 import CurrencyIcon from "./CurrencyIcon"
+import GaleIcon from './../assets/icons/gale.svg'
 
 export default function Card({ properties, cardName, gales }) {
   const cardProps = properties[Object.keys(properties)[0]]
@@ -86,11 +87,16 @@ function CicloBox({ type }) {
       )
     case 'wing1':
     return (
-      <div className='caixa win'></div>
+      <div className='caixa win'>
+        <img src={GaleIcon} alt='gale-icon'/>
+      </div>
     )
     case 'wing2':
       return (
-        <div className='caixa win'></div>
+        <div className='caixa win'>
+          <img src={GaleIcon} alt='gale-icon'/>
+          <img src={GaleIcon} alt='gale-icon'/>
+        </div>
       )
     default:
       return ''
