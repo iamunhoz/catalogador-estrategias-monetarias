@@ -1,16 +1,21 @@
 import CurrencyIcon from "./CurrencyIcon"
-import GaleIcon from './../assets/icons/gale.svg'
+import CicloQuadradinho from "./CicloQuadradinho"
 
 export default function Card({ properties, cardName, gales }) {
   const cardProps = properties[Object.keys(properties)[0]]
 
   const getPercentage = (value) => {
-    const total = cardProps.WIN + cardProps.winG1 + cardProps.winG2 + cardProps.loss
+    let total = cardProps.WIN + cardProps.winG1 + cardProps.winG2 + cardProps.loss
+
+    if (total === 0) total = 1
+
     return `${(value / total) * 100}%`
   }
 
   const getGalesPercentage = (galeValue) => {
-    const total = cardProps.WIN + cardProps.winG1 + cardProps.winG2 + cardProps.loss
+    let total = cardProps.WIN + cardProps.winG1 + cardProps.winG2 + cardProps.loss
+
+    if (total === 0) total = 1
 
     switch (galeValue) {
       case 'Mao':
@@ -64,41 +69,9 @@ export default function Card({ properties, cardName, gales }) {
           </tbody>
         </table>
         <div className='ciclos-container'>
-          {cardProps.ciclos.map((ciclo, i) => <CicloBox type={ciclo}/>)}
+          {cardProps.ciclos.map((ciclo, i) => <CicloQuadradinho type={ciclo}/>)}
         </div>
       </div>
     </div>
   )
-}
-
-function CicloBox({ type }) {
-  switch (type.toLowerCase()) {
-    case 'loss':
-      return (
-        <div className='caixa loss'></div>
-      )
-    case 'doji':
-      return (
-        <div className='caixa doji'></div>
-      )
-    case 'win':
-      return (
-        <div className='caixa win'></div>
-      )
-    case 'wing1':
-    return (
-      <div className='caixa win'>
-        <img src={GaleIcon} alt='gale-icon'/>
-      </div>
-    )
-    case 'wing2':
-      return (
-        <div className='caixa win'>
-          <img src={GaleIcon} alt='gale-icon'/>
-          <img src={GaleIcon} alt='gale-icon'/>
-        </div>
-      )
-    default:
-      return ''
-  }
 }
