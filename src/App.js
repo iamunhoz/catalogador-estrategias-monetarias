@@ -10,7 +10,7 @@ function App() {
   const [searchParams, setSearchParams] = useState({
     currency: '',
     timeframe: 'M1',
-    lastUpdate: date.toTimeString()
+    lastUpdate: date.toLocaleTimeString('pt-BR')
   })
   const [gales, setGales] = useState('G1')
 
@@ -26,7 +26,7 @@ function App() {
         setSearchParams(oldParams => ({
           ...oldParams,
           currency: response.data.ok[0],
-          lastUpdate: date.toTimeString()
+          lastUpdate: date.toLocaleTimeString('pt-BR')
         }))
       })
   }, [])
@@ -50,7 +50,7 @@ function App() {
       <Header setSearchParams={setSearchParams} setGales={setGales}/>
       
       <h5 className='last-update'>
-        {`Última Atualização feita às: ${searchParams.lastUpdate}`}
+        {`Última Atualização feita às: ${searchParams.lastUpdate} UTC-3`}
       </h5>
 
       <Content gales={gales} listOfCards={listOfCards}/>

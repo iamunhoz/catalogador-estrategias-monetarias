@@ -9,12 +9,23 @@ export default function Card({
 }) {
   const cardProps = properties[Object.keys(properties)[0]]
 
-  const getPercentage = (value) => {
+  const getPercentage = (column) => {
     let total = cardProps.WIN + cardProps.winG1 + cardProps.winG2 + cardProps.loss
 
     if (total === 0) total = 1
 
-    return `${Math.round((value / total) * 100)}%`
+    switch (column) {
+      case 'g0':
+        return `${Math.round((cardProps.WIN / total) * 100) }%`
+      case 'g1':
+        return `${Math.round(((cardProps.WIN + cardProps.winG1) / total) * 100 )}%`
+      case 'g2':
+        return `${Math.round(((cardProps.WIN + cardProps.winG1 + cardProps.winG2) / total) * 100) }%`
+      case 'loss':
+        return `${Math.round((cardProps.loss / total) * 100) }%`
+      default:
+        return '%%'
+    }
   }
 
   const getGalesPercentage = (galeValue) => {
@@ -65,15 +76,15 @@ export default function Card({
           </thead>
           <tbody>
             <tr className='porcentagens'>
-              <td className='table-text infoVerde'>{getPercentage(cardProps.WIN)}</td>
-              <td className='table-text infoVerde'>{getPercentage(cardProps.winG1)}</td>
-              <td className='table-text infoVerde'>{getPercentage(cardProps.winG2)}</td>
+              <td className='table-text infoVerde'>{getPercentage('g0')}</td>
+              <td className='table-text infoVerde'>{getPercentage('g1')}</td>
+              <td className='table-text infoVerde'>{getPercentage('g2')}</td>
               <td className='table-text infoVermelha'>{getPercentage(cardProps.loss)}</td>
             </tr>
             <tr className='absolutos'>
               <td className='table-text infoVerde'>{`${cardProps.WIN} x ${cardProps.winG1 + cardProps.winG2 + cardProps.loss}`}</td>
-              <td className='table-text infoVerde'>{`${cardProps.winG1} x ${cardProps.WIN + cardProps.loss}`}</td>
-              <td className='table-text infoVerde'>{`${cardProps.winG2} x ${cardProps.WIN + cardProps.winG1 + cardProps.loss}`}</td>
+              <td className='table-text infoVerde'>{`${cardProps.WIN + cardProps.winG1} x ${cardProps.winG2 + cardProps.loss}`}</td>
+              <td className='table-text infoVerde'>{`${cardProps.WIN + cardProps.winG1 + cardProps.winG2} x ${cardProps.loss}`}</td>
               <td className='table-text infoVermelha'>{cardProps.loss}</td>
             </tr>
           </tbody>

@@ -14,6 +14,7 @@ import EURUSD from '../assets/icons/EURUSD.svg'
 import GBPUSD from '../assets/icons/GBPUSD.svg'
 import USDCAD from '../assets/icons/USDCAD.svg'
 import XRPUSD from '../assets/icons/XRPUSD.svg'
+import AgbotIcon from '../assets/icons/agbot.jpg'
 
 export default function CurrencyIcon({ currencyName }) {
   switch (currencyName) {
@@ -83,6 +84,6 @@ export default function CurrencyIcon({ currencyName }) {
         <img className='currencyPairFlag' src={XRPUSD} alt='XRPUSD'/>
       )
     default:
-      return <p>X</p>
+      return <img className='currencyPairFlag agbot' src={AgbotIcon} alt='agbot-icon'/>
   }
 }
