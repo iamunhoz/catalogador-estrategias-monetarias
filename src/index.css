@@ -87,15 +87,21 @@ header select {
 
 .cardbox-top-linha-dois {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   color: var(--info-green);
   font-family: Quicksand,sans-serif;
   font-size: 24px;
-  margin: -5px 0 5px 0;
+  margin: -5px 0 5px 20px;
+}
+
+.trophy {
+  width: 20px;
+  height: 40px;
 }
 
 .card-espacador {
-  height: 60px;
+  height: 20px;
   background-color: #111111;
 }
 

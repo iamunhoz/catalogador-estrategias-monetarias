@@ -1,7 +1,12 @@
 import CurrencyIcon from "./CurrencyIcon"
+import TrophyIcon from "./TrophyIcon"
 import CicloQuadradinho from "./CicloQuadradinho"
 
-export default function Card({ properties, gales }) {
+export default function Card({
+  properties,
+  gales,
+  position
+}) {
   const cardProps = properties[Object.keys(properties)[0]]
 
   const getPercentage = (value) => {
@@ -40,7 +45,10 @@ export default function Card({ properties, gales }) {
           </div>
           <p>{cardProps.name}</p>
         </div>
-        <p className='cardbox-top-linha-dois'>{getGalesPercentage(gales)}</p>
+        <div className='cardbox-top-linha-dois'>
+          <TrophyIcon position={position}/>
+          {getGalesPercentage(gales)}
+        </div>
       </div>
 
       <div className='card-espacador'></div>

@@ -5,7 +5,6 @@ import { retrieveData, retrieveCurrencies } from './services/api'
 
 function App() {
   const [listOfCards, setListOfCards] = useState([])
-  const [listOfCardNames, setListOfCardNames] = useState([])
   const [searchParams, setSearchParams] = useState({
     currency: '',
     timeframe: 'M1'
@@ -13,7 +12,7 @@ function App() {
   const [gales, setGales] = useState('G1')
 
   const getCards = (objectOfObjects) => {
-    const propertiesList = Object.keys(objectOfObjects)
+    const propertiesList = Object.keys(objectOfObjects || {})
     const arrayOfObjects = propertiesList.map(property => objectOfObjects[property])
     return arrayOfObjects
   }
@@ -29,16 +28,8 @@ function App() {
   }, [])
 
   useEffect(() => {
-    setSearchParams(oldParams => ({
-      ...oldParams,
-      currency: retrieveCurrencies()
-    }))
-  }, [])
-
-  useEffect(() => {
     retrieveData(searchParams.currency, searchParams.timeframe)
      .then(response => {
-       setListOfCardNames(Object.keys(response.data.ok))
        setListOfCards(getCards(response.data.ok))
      })
   }, [searchParams])
@@ -46,7 +37,7 @@ function App() {
   return (
     <>
       <Header setSearchParams={setSearchParams} setGales={setGales}/>
-      <Content gales={gales} listOfCards={listOfCards} listOfCardNames={listOfCardNames}/>
+      <Content gales={gales} listOfCards={listOfCards}/>
     </>
   );
 }
