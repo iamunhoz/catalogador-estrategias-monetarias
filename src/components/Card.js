@@ -80,6 +80,7 @@ export default function Card({
         </table>
         <div className='ciclos-container'>
           {cardProps.ciclos.map((ciclo, i) => <CicloQuadradinho type={ciclo} key={i}/>)}
+          {(new Array(24 - cardProps.ciclos.length).fill('')).map((_,i) => <CicloQuadradinho type='black' key={i}/>)}
         </div>
       </div>
     </div>

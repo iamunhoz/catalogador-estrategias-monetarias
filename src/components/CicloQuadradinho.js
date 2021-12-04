@@ -27,6 +27,10 @@ export default function CicloQuadradinho({ type }) {
           <img src={GaleIcon} alt='gale-icon'/>
         </div>
       )
+    case 'black':
+      return (
+        <div className='caixa black'></div>
+      )
     default:
       return ''
   }

@@ -33,13 +33,20 @@ header select {
   height: 30px;
 }
 
+.last-update {
+  padding-top: 40px;
+  color: rgb(232, 230, 227);
+  text-align: center;
+
+}
+
 .cardGrid {
   /* background-color: rgb(32, 30, 54); */
   color: rgb(232, 230, 227);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 102px;
+  /* padding-top: 102px; */
 }
 
 .cardbox {
@@ -133,6 +140,10 @@ header select {
 
 .loss {
   background-color: #f3324d;
+}
+
+.black {
+  background-color: #191919;
 }
 
 .ciclos-container {

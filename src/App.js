@@ -3,11 +3,14 @@ import Header from './components/Header'
 import Content from './components/Content'
 import { retrieveData, retrieveCurrencies } from './services/api'
 
+const date = new Date()
+
 function App() {
   const [listOfCards, setListOfCards] = useState([])
   const [searchParams, setSearchParams] = useState({
     currency: '',
-    timeframe: 'M1'
+    timeframe: 'M1',
+    lastUpdate: date.toTimeString()
   })
   const [gales, setGales] = useState('G1')
 
@@ -22,7 +25,8 @@ function App() {
       .then(response => {
         setSearchParams(oldParams => ({
           ...oldParams,
-          currency: response.data.ok[0]
+          currency: response.data.ok[0],
+          lastUpdate: date.toTimeString()
         }))
       })
   }, [])
@@ -34,9 +38,21 @@ function App() {
      })
   }, [searchParams])
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+    window.location.reload()
+    }, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <Header setSearchParams={setSearchParams} setGales={setGales}/>
+      
+      <h5 className='last-update'>
+        {`Última Atualização feita às: ${searchParams.lastUpdate}`}
+      </h5>
+
       <Content gales={gales} listOfCards={listOfCards}/>
     </>
   );

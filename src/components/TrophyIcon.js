@@ -11,6 +11,6 @@ export default function TrophyIcon({ position }) {
     case 2:
       return <img src={TrophyCopper} alt='Copper Trophy' className='trophy'/>
     default:
-      return ''
+      return <div></div>
   }
 }
