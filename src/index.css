@@ -51,6 +51,7 @@ header select {
 
 .cardbox {
   background-color: #191919;
+  background-image: url(./assets/cardbg.png);
   width: 328px;
   height: 179px;
   border-radius: 11px;
@@ -105,10 +106,11 @@ header select {
 .trophy {
   width: 20px;
   height: 40px;
+  color: #db7c23;
 }
 
 .card-espacador {
-  height: 20px;
+  height: 10px;
   background-color: #111111;
 }
 
