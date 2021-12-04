@@ -49,6 +49,7 @@ import NZDCHF from '../assets/icons/NZDCHF.svg'
 import CADJPY from '../assets/icons/CADJPY.svg'
 import EURNZDOTC from '../assets/icons/EURNZDOTC.svg'
 import NZDJPYOTC from '../assets/icons/NZDJPYOTC.svg'
+import EURJPYOTC from '../assets/icons/EURJPYOTC.svg'
 
 import AgbotIcon from '../assets/icons/agbot.jpg'
 
@@ -74,6 +75,10 @@ export default function CurrencyIcon({ currencyName }) {
     case 'EUR/JPY':
       return (
         <img className='currencyPairFlag' src={EURJPY} alt='EURJPY'/>
+      )
+      case 'EUR/JPY-OTC':
+      return (
+        <img className='currencyPairFlag' src={EURJPYOTC} alt='EURJPY-OTC'/>
       )
     case 'GBP/JPY':
       return (

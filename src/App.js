@@ -9,10 +9,10 @@ function App() {
   const [listOfCards, setListOfCards] = useState([])
   const [searchParams, setSearchParams] = useState({
     currency: '',
-    timeframe: 'M1',
+    timeframe: '',
     lastUpdate: date.toLocaleTimeString('pt-BR')
   })
-  const [gales, setGales] = useState('G1')
+  const [gales, setGales] = useState('G2')
 
   const getCards = (objectOfObjects) => {
     const propertiesList = Object.keys(objectOfObjects || {})
@@ -25,7 +25,8 @@ function App() {
       .then(response => {
         setSearchParams(oldParams => ({
           ...oldParams,
-          currency: response.data.ok[0],
+          currency: 'all',
+          timeframe: 'M5',
           lastUpdate: date.toLocaleTimeString('pt-BR')
         }))
       })

@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import { retrieveCurrencies } from './../services/api'
 import TelegramIcon from './../assets/icons/telegram.png'
+import CurrencyExchange from '../assets/icons/currencyExchange.svg'
+import Stopwatch from '../assets/icons/stopwatch.svg'
+import Gear from '../assets/icons/gearfill.svg'
 
 function Header({
   setSearchParams,
@@ -28,21 +31,31 @@ function Header({
   return (
     <header>
 
-        <select name="currency" id="currency" className="select" onClick={handleSearchParams}>
-          {currencies.map((currency, index) => <option value={currency} key={index}>{currency}</option>)}
-        </select>
+        <label>
+          <img src={CurrencyExchange} alt='currency-selection' className='header-icon'/>
+          <select name="currency" id="currency" className="select" onClick={handleSearchParams}>
+            <option value='all'>Todos</option>
+            {currencies.map((currency, index) => <option value={currency} key={index}>{currency}</option>)}
+          </select>
+        </label>
 
-        <select name="timeframe" id="timeframeSelect" className="select" onClick={handleSearchParams}>
-          <option value="M1">M1</option>
-          <option value="M5">M5</option>
-          <option value="M15">M15</option>
-        </select>
+        <label>
+          <img src={Stopwatch} alt='timeframe-selection' className='header-icon'/>
+          <select name="timeframe" id="timeframeSelect" className="select" onClick={handleSearchParams}>
+            <option value="M5">M5</option>
+            <option value="M1">M1</option>
+            <option value="M15">M15</option>
+          </select>
+        </label>
 
-        <select name="gale" id="galeSelect" className="select" onClick={handleGales}>
-          <option value="G2">2 Gales</option>
-          <option value="G1">1 Gale</option>
-          <option value="Mao">Mão Fixa</option>
-        </select>
+        <label>
+        <img src={Gear} alt='gale-selection' className='header-icon'/>
+          <select name="gale" id="galeSelect" className="select" onClick={handleGales}>
+            <option value="G2">2 Gales</option>
+            <option value="G1">1 Gale</option>
+            <option value="Mao">Mão Fixa</option>
+          </select>
+        </label>
 
         <a href="https://t.me/agbot_oficial" target='_blank' rel='noreferrer'>
           <img src={TelegramIcon} alt='Telegram Icon' className='telegram-icon'/>

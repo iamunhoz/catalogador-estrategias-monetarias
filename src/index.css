@@ -20,6 +20,12 @@ header {
   width: 100%;
 }
 
+header label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 header select {
   background-color: #111111;
   border: 0;
@@ -112,7 +118,7 @@ header select {
 }
 
 .card-espacador {
-  height: 10px;
+  height: 7px;
   background-color: #111111;
 }
 
@@ -198,4 +204,9 @@ table {
 
 .agbot {
   border-radius: 50%;
+}
+
+.header-icon {
+  width: 15px;
+  height: 15px;
 }

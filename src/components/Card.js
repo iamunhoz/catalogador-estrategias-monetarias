@@ -8,9 +8,6 @@ export default function Card({
   position
 }) {
   const cardProps = properties[Object.keys(properties)[0]]
-
-  console.log('currency tag', cardProps.active)
-
   const getPercentage = (column) => {
     let total = cardProps.WIN + cardProps.winG1 + cardProps.winG2 + cardProps.loss
 
@@ -92,8 +89,8 @@ export default function Card({
           </tbody>
         </table>
         <div className='ciclos-container'>
-          {cardProps.ciclos.map((ciclo, i) => <CicloQuadradinho type={ciclo} key={i}/>)}
-          {(new Array(24 - cardProps.ciclos.length).fill('')).map((_,i) => <CicloQuadradinho type='black' key={i}/>)}
+          {cardProps.ciclos.reverse().map((ciclo, i) => <CicloQuadradinho type={ciclo} key={i}/>)}
+          {(new Array(25 - cardProps.ciclos.length).fill('')).map((_,i) => <CicloQuadradinho type='black' key={i}/>)}
         </div>
       </div>
     </div>
