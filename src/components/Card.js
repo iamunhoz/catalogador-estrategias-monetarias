@@ -9,6 +9,8 @@ export default function Card({
 }) {
   const cardProps = properties[Object.keys(properties)[0]]
 
+  console.log('currency tag', cardProps.active)
+
   const getPercentage = (column) => {
     let total = cardProps.WIN + cardProps.winG1 + cardProps.winG2 + cardProps.loss
 
