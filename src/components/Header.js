@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import { retrieveCurrencies } from './../services/api'
 import TelegramIcon from './../assets/icons/telegram.png'
 
@@ -44,10 +44,12 @@ function Header({
           <option value="Mao">Mão Fixa</option>
         </select>
 
-        <img src={TelegramIcon} alt='Telegram Icon' className='telegram-icon'/>
+        <a href="https://t.me/agbot_oficial" target='_blank' rel='noreferrer'>
+          <img src={TelegramIcon} alt='Telegram Icon' className='telegram-icon'/>
+        </a>
 
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

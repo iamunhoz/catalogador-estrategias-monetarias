@@ -1,3 +1,7 @@
+:root {
+  --info-green: #01ec77;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,7 +15,9 @@ header {
   justify-content: space-around;
   align-items: center;
   height: 40px;
-
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 header select {
@@ -33,6 +39,21 @@ header select {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-top: 102px;
+}
+
+.cardbox {
+  background-color: #191919;
+  width: 328px;
+  height: 179px;
+  border-radius: 11px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  flex: 0 0 auto;
+  /* padding: 5px 10px 20px 10px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cardbox-top {
@@ -41,17 +62,20 @@ header select {
   padding-right: 10px;
 }
 
-.cardbox-top-linha-um p {
-  font-family: Quicksand,sans-serif;
-  font-size: 14px;
-}
-
 .cardbox-top-linha-um {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 40px;
   flex: 0 0 auto;
+  margin-left: 20px;
+}
+
+.cardbox-top-linha-um p {
+  font-family: Quicksand,sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .cardbox-top-linha-um-esquerda {
@@ -63,16 +87,22 @@ header select {
 
 .cardbox-top-linha-dois {
   display: flex;
-  justify-content: end;
-  color: #0cce91;
+  justify-content: flex-end;
+  color: var(--info-green);
   font-family: Quicksand,sans-serif;
   font-size: 24px;
-  margin: 0;
+  margin: -5px 0 5px 0;
+}
+
+.card-espacador {
+  height: 60px;
+  background-color: #111111;
 }
 
 .cardbox-bottom {
   display: flex;
   justify-content: space-around;
+  padding: 5px;
 }
 
 
@@ -80,7 +110,11 @@ header select {
   width: 16px;
   height: 8px;
   font-size: 7px;
-  color: #055038;
+}
+
+.caixa img {
+  width: 8px;
+  height: 4px;
 }
 
 .doji {
@@ -88,25 +122,11 @@ header select {
 }
 
 .win {
-  background-color: #0cce91;
+  background-color: var(--info-green);
 }
 
 .loss {
   background-color: #f3324d;
-}
-
-.estrategiaContainer {
-  background-color: #191919;
-  width: 328px;
-  height: 179px;
-  border-radius: 11px;
-  margin-bottom: 15px;
-  margin-right: 15px;
-  flex: 0 0 auto;
-  padding: 5px 10px 20px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .ciclos-container {
@@ -115,10 +135,11 @@ header select {
   gap: 5px 5px;
   width: 140px;
   flex: 0 0 auto;
+  padding-top: 4px;
 }
 
 .infoVerde {
-  color: #0cce91;
+  color: var(--info-green);
   font-family: Quicksand,sans-serif;
   font-size: 12px;
 }
@@ -145,6 +166,10 @@ header select {
 table {
   border-collapse: separate;
   border-spacing: 8px 0;
+}
+
+.absolutos td {
+  font-size: 10px;
 }
 
 .table-text {

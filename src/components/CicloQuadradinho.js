@@ -14,13 +14,13 @@ export default function CicloQuadradinho({ type }) {
       return (
         <div className='caixa win'></div>
       )
-    case 'wing1':
+    case 'g1':
     return (
       <div className='caixa win'>
         <img src={GaleIcon} alt='gale-icon'/>
       </div>
     )
-    case 'wing2':
+    case 'g2':
       return (
         <div className='caixa win'>
           <img src={GaleIcon} alt='gale-icon'/>

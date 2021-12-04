@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Content from './components/Content'
 import { retrieveData, retrieveCurrencies } from './services/api'
@@ -51,4 +51,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

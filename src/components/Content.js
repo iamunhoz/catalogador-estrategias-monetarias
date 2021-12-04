@@ -2,7 +2,6 @@ import Card from './Card'
 
 function Content({
   listOfCards,
-  listOfCardNames,
   gales
 }) 
 
@@ -14,7 +13,6 @@ function Content({
         ? listOfCards.map((card, index) => (
             <Card
               properties={card}
-              cardName={listOfCardNames[index]}
               gales={gales}
               key={index}
             />
@@ -22,7 +20,7 @@ function Content({
         : 'Loading'
       }
     </main>
-  );
+  )
 }
 
-export default Content;
+export default Content
