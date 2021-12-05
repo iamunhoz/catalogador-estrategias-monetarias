@@ -11,8 +11,6 @@ export default function Card({
 
   if (!cardProps) return ''
 
-  console.log('cardProps', cardProps)
-
   const getPercentage = (column) => {
     let total = cardProps.WIN + cardProps.winG1 + cardProps.winG2 + cardProps.loss
 
