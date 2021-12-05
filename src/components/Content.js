@@ -22,6 +22,10 @@ function Content({
   }
 
   const sortedListOfCards = listOfCards.sort((a, b) => {
+    if (a.length < 1 || b.length < 1) {
+      return -1
+    }
+
     const A = a[Object.keys(a)[0]]
     const B = b[Object.keys(b)[0]]
     

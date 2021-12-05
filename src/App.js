@@ -46,6 +46,7 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  console.log(listOfCards)
   return (
     <>
       <Header setSearchParams={setSearchParams} setGales={setGales}/>

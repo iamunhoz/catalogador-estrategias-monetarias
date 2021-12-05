@@ -8,6 +8,11 @@ export default function Card({
   position
 }) {
   const cardProps = properties[Object.keys(properties)[0]]
+
+  if (!cardProps) return ''
+
+  console.log('cardProps', cardProps)
+
   const getPercentage = (column) => {
     let total = cardProps.WIN + cardProps.winG1 + cardProps.winG2 + cardProps.loss
 
