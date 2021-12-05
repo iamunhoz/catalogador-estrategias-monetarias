@@ -1,3 +1,18 @@
+# catalogador-estrategias-monetarias
+
+## Endpoint
+Os dados referentes à API que fornece os dados dessa aplicação estão no arquivo `/src/services/api.js`
+
+## Estilo
+Todas as regras CSS estão contidas no arquivo `/src/index.css`
+
+## Deploy
+Uma demonstração de um deploy bem sucedido pode ser visto neste [link](https://catalogador-estrategias-monetarias.netlify.app).
+
+## Página travada no Loading
+Caso a API pare de responder, a aplicação carregará em sua estrutura mas exibirá somente 'Loading' ao invés de um grid de Cards
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -34,16 +49,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-# catalogador-estrategias-monetarias
-
-## Endpoint
-Os dados referentes à API que fornece os dados dessa aplicação estão no arquivo `/src/services/api.js`
-
-## Estilo
-Todas as regras CSS estão contidas no arquivo `/src/index.css`
-
-## Deploy
-Uma demonstração de um deploy bem sucedido pode ser visto neste [link](https://catalogador-estrategias-monetarias.netlify.app).
-
-## Página travada no Loading
-Caso a API pare de responder, a aplicação carregará em sua estrutura mas exibirá somente 'Loading' ao invés de um grid de Cards
