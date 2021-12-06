@@ -9,9 +9,10 @@ function App() {
   const [listOfCards, setListOfCards] = useState([])
   const [searchParams, setSearchParams] = useState({
     currency: '',
-    timeframe: '',
-    lastUpdate: date.toLocaleTimeString('pt-BR')
+    timeframe: ''
   })
+  
+  const [lastUpdate, setLastUpdate] = useState(date.toLocaleTimeString('pt-BR'))
   const [gales, setGales] = useState('G2')
 
   const getCards = (objectOfObjects) => {
@@ -26,10 +27,11 @@ function App() {
         setSearchParams(oldParams => ({
           ...oldParams,
           currency: 'all',
-          timeframe: 'M5',
-          lastUpdate: date.toLocaleTimeString('pt-BR')
+          timeframe: 'M5'
         }))
+        setLastUpdate(date.toLocaleTimeString('pt-BR'))
       })
+      .catch(e => console.error(e))
   }, [])
 
   useEffect(() => {
@@ -37,21 +39,22 @@ function App() {
      .then(response => {
        setListOfCards(getCards(response.data.ok))
      })
+     .catch(e => console.error(e))
   }, [searchParams])
 
   useEffect(() => {
     const interval = setInterval(() => {
-    window.location.reload()
+      setLastUpdate(date.toLocaleTimeString('pt-BR'))
     }, 60000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      <Header setSearchParams={setSearchParams} setGales={setGales}/>
+      <Header setSearchParams={setSearchParams} setGales={setGales} setLastUpdate={setLastUpdate}/>
       
       <h5 className='last-update'>
-        {`Última Atualização feita às: ${searchParams.lastUpdate} UTC-3`}
+        {`Última Atualização feita às: ${lastUpdate} UTC-3`}
       </h5>
 
       <Content gales={gales} listOfCards={listOfCards}/>

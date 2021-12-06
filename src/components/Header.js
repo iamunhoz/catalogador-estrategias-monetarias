@@ -5,9 +5,12 @@ import CurrencyExchange from '../assets/icons/currencyExchange.svg'
 import Stopwatch from '../assets/icons/stopwatch.svg'
 import Gear from '../assets/icons/gearfill.svg'
 
+const date = new Date()
+
 function Header({
   setSearchParams,
-  setGales
+  setGales,
+  setLastUpdate
 })
 {
   const [currencies, setCurrencies] = useState([])
@@ -17,6 +20,7 @@ function Header({
       ...oldParams,
       [`${event.target.name}`]: event.target.value
     }))
+    setLastUpdate(date.toLocaleTimeString('pt-BR'))
   }
   const handleGales = event => {
     setGales(event.target.value)
@@ -26,6 +30,7 @@ function Header({
       .then(response => {
         setCurrencies(response.data.ok)
       })
+      .catch(e => console.error(e))
   }, [])
 
   return (
@@ -33,7 +38,7 @@ function Header({
 
         <label>
           <img src={CurrencyExchange} alt='currency-selection' className='header-icon'/>
-          <select name="currency" id="currency" className="select" onClick={handleSearchParams}>
+          <select name="currency" id="currency" className="select" onChange={handleSearchParams}>
             <option value='all'>Todos</option>
             {currencies.map((currency, index) => <option value={currency} key={index}>{currency}</option>)}
           </select>
@@ -41,7 +46,7 @@ function Header({
 
         <label>
           <img src={Stopwatch} alt='timeframe-selection' className='header-icon'/>
-          <select name="timeframe" id="timeframeSelect" className="select" onClick={handleSearchParams}>
+          <select name="timeframe" id="timeframeSelect" className="select" onChange={handleSearchParams}>
             <option value="M5">M5</option>
             <option value="M1">M1</option>
             <option value="M15">M15</option>
@@ -50,7 +55,7 @@ function Header({
 
         <label>
         <img src={Gear} alt='gale-selection' className='header-icon'/>
-          <select name="gale" id="galeSelect" className="select" onClick={handleGales}>
+          <select name="gale" id="galeSelect" className="select" onChange={handleGales}>
             <option value="G2">2 Gales</option>
             <option value="G1">1 Gale</option>
             <option value="Mao">Mão Fixa</option>
